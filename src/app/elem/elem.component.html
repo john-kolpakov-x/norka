@@ -1,0 +1,4 @@
+<!--suppress AngularInvalidExpressionResultType -->
+<app-elem-unknown *ngIf="type === E_UNKNOWN"></app-elem-unknown>
+<app-elem-plus *ngIf="type === E_PLUS" [formula]="formula" [elem]="elem" [elemId]="elemId"></app-elem-plus>
+<app-elem-const *ngIf="type === E_CONST" [formula]="formula" [elem]="elem" [elemId]="elemId"></app-elem-const>
