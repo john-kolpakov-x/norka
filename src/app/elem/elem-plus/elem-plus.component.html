@@ -1,3 +1,9 @@
-<app-elem [formula]="formula" [elemId]="elem.leftId"></app-elem>
-+
-<app-elem [formula]="formula" [elemId]="elem.rightId"></app-elem>
+<span class="plus">
+  <span class="plus-left">
+    <app-elem [formula]="formula" [elemId]="elem.leftId"></app-elem>
+  </span>
+  <span class="plus-operand">+</span>
+  <span class="plus-right">
+    <app-elem [formula]="formula" [elemId]="elem.rightId"></app-elem>
+  </span>
+</span>

@@ -1,0 +1,17 @@
+.div {
+  display: inline-flex;
+  flex-direction: column;
+
+  &-top, &-bottom {
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    //border: #328020 solid 1px;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  &-line {
+    border-top: black solid 0.07rem;
+  }
+
+}

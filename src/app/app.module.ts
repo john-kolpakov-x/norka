@@ -7,6 +7,7 @@ import { ElemComponent } from './elem/elem.component';
 import { ElemPlusComponent } from './elem/elem-plus/elem-plus.component';
 import { ElemConstComponent } from './elem/elem-const/elem-const.component';
 import { ElemUnknownComponent } from './elem/elem-unknown/elem-unknown.component';
+import { ElemDivComponent } from './elem/elem-div/elem-div.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ElemUnknownComponent } from './elem/elem-unknown/elem-unknown.component
     ElemComponent,
     ElemPlusComponent,
     ElemConstComponent,
-    ElemUnknownComponent
+    ElemUnknownComponent,
+    ElemDivComponent
   ],
   imports: [
     BrowserModule,

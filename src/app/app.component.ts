@@ -21,9 +21,9 @@ export class AppComponent {
         value: '2'
       },
       id3: {
-        type: 'plus',
-        leftId: 'id4',
-        rightId: 'id5'
+        type: 'div',
+        topId: 'id4',
+        bottomId: 'id5'
       },
       id4: {
         type: 'const',

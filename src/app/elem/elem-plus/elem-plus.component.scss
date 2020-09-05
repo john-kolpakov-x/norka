@@ -1,0 +1,13 @@
+.plus {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  &-left, &-right {
+    //border: blue solid 1px;
+    display: inline-block;
+  }
+
+  &-operand {
+  }
+}
