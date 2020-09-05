@@ -9,7 +9,6 @@ export class ElemUnknownComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

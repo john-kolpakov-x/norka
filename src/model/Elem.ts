@@ -1,5 +1,4 @@
-import {ElemType} from './ElemType';
+import {ElemConst} from './ElemConst';
+import {ElemPlus} from './ElemPlus';
 
-export interface Elem {
-  type: ElemType;
-}
+export type Elem = ElemPlus | ElemConst;

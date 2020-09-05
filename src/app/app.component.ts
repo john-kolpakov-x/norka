@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {Formula} from '../model/Formula';
-import {ElemType} from '../model/ElemType';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +12,7 @@ export class AppComponent {
     id: 'asd',
     elements: {
       id1: {
-        type: ElemType.PLUS,
+        type: 'plus',
         leftId: 'id2',
         rightId: 'id3'
       },
@@ -22,9 +21,18 @@ export class AppComponent {
         value: '2'
       },
       id3: {
+        type: 'plus',
+        leftId: 'id4',
+        rightId: 'id5'
+      },
+      id4: {
         type: 'const',
         value: '3'
       },
+      id5: {
+        type: 'const',
+        value: '4'
+      }
     }
   };
 

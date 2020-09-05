@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ElemType} from '../../model/ElemType';
 import {Formula} from '../../model/Formula';
 import {Elem} from '../../model/Elem';
 
@@ -10,21 +9,17 @@ import {Elem} from '../../model/Elem';
 })
 export class ElemComponent implements OnInit {
 
-  E_UNKNOWN = ElemType.UNKNOWN;
-  E_PLUS = ElemType.PLUS;
-  E_CONST = ElemType.CONST;
-
   @Input()
   formula: Formula;
 
   @Input()
   elemId: string;
 
-  get type(): ElemType {
+  get type(): string {
 
     const elem: Elem = this.formula.elements[this.elemId];
     if (!elem || !elem.type) {
-      return ElemType.UNKNOWN;
+      return 'unknown';
     }
 
     return elem.type;

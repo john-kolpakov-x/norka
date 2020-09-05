@@ -12,10 +12,11 @@ export class ElemPlusComponent implements OnInit {
   formula: Formula;
 
   @Input()
-  elem: ElemPlus;
-
-  @Input()
   elemId: string;
+
+  get elem(): ElemPlus {
+    return this.formula.elements[this.elemId] as ElemPlus;
+  }
 
   constructor() { }
 

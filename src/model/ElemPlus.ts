@@ -1,6 +1,5 @@
-import {Elem} from './Elem';
-
-export interface ElemPlus extends Elem {
+export interface ElemPlus {
+  type: 'plus';
   leftId: string;
   rightId: string;
 }
