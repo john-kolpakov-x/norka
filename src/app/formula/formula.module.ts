@@ -6,6 +6,7 @@ import {ElemConstComponent} from './elem/elem-const/elem-const.component';
 import {ElemUnknownComponent} from './elem/elem-unknown/elem-unknown.component';
 import {ElemDivComponent} from './elem/elem-div/elem-div.component';
 import {FormulaStateService} from './formula-state.service';
+import { FormulaComponent } from './formula/formula.component';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,11 @@ import {FormulaStateService} from './formula-state.service';
     ElemConstComponent,
     ElemUnknownComponent,
     ElemDivComponent,
+    FormulaComponent,
   ],
   exports: [
-    ElemComponent
+    ElemComponent,
+    FormulaComponent
   ],
   imports: [
     CommonModule,
