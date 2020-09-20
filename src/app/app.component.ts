@@ -18,7 +18,7 @@ export class AppComponent {
       },
       id2: {
         type: 'const',
-        value: '2'
+        value: '271.7'
       },
       id3: {
         type: 'div',
@@ -27,11 +27,11 @@ export class AppComponent {
       },
       id4: {
         type: 'const',
-        value: '3'
+        value: '35.9'
       },
       id5: {
         type: 'const',
-        value: '4'
+        value: '-4.56'
       }
     }
   };

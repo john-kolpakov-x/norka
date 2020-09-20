@@ -19,6 +19,19 @@ export class ElemConstComponent implements OnInit {
     return this.formula.elements[this.elemId] as ElemConst;
   }
 
+  get elemParts(): string[] {
+    const elemValue = this.elem.value;
+    if (!elemValue) {
+      return [];
+    }
+    const count = elemValue.length;
+    const ret: string[] = [];
+    for (let i = 0; i < count; i++) {
+      ret.push(elemValue[i]);
+    }
+    return ret;
+  }
+
   constructor() { }
 
   ngOnInit(): void {
