@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Formula} from '../../../../model/Formula';
 import {ElemConst} from '../../../../model/ElemConst';
 import {ElemPlus} from '../../../../model/ElemPlus';
+import {FormulaStateService} from '../../formula-state.service';
 
 @Component({
   selector: 'app-elem-const',
@@ -14,6 +15,8 @@ export class ElemConstComponent implements OnInit {
 
   @Input()
   elemId: string;
+
+  cursorPos = 0;
 
   get elem(): ElemConst {
     return this.formula.elements[this.elemId] as ElemConst;
@@ -32,9 +35,16 @@ export class ElemConstComponent implements OnInit {
     return ret;
   }
 
-  constructor() { }
+  constructor(private state: FormulaStateService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  letterClass(i: number): string {
+    if (this.elemId !== this.state.focusedId) {
+      return undefined;
+    }
+    return i === this.cursorPos
+      ? 'const-cursor-left'
+      : ((i === this.elemParts.length - 1 && this.cursorPos >= this.elemParts.length) ? 'const-cursor-right' : undefined);
   }
-
 }
