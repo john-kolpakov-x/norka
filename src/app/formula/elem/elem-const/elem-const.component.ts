@@ -117,4 +117,18 @@ export class ElemConstComponent implements OnInit, FElement, OnDestroy {
     return true;
   }
 
+  onMouseDown(event: MouseEvent, pos: number): void {
+    this.state.focusedId = this.elemId;
+    this.cursorPos = pos;
+
+    // tslint:disable-next-line
+    const W = event.target['offsetWidth'];
+    // tslint:disable-next-line
+    const L = event.clientX - event.target['offsetLeft'];
+
+    if (L >= W / 2) {
+      this.cursorPos++;
+    }
+
+  }
 }

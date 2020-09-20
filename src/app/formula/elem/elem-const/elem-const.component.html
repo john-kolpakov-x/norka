@@ -1,3 +1,6 @@
 <span class="elem const">
-  <span *ngFor="let c of elemParts; let i = index" [ngClass]="letterClass(i)">{{c}}</span>
+  <span *ngFor="let c of elemParts; let i = index"
+        [ngClass]="letterClass(i)"
+        (mousedown)="onMouseDown($event, i)"
+  >{{c}}</span>
 </span>
