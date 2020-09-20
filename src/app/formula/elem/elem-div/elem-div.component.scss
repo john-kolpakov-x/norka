@@ -12,6 +12,20 @@
 
   &-line {
     border-top: black solid 0.07rem;
+
+    &-focused {
+      border-top: blue solid 0.1rem;
+    }
+  }
+
+  &-cursorLeft {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-left: blue solid 1px;
+  }
+
+  &-cursorRight {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-right: blue solid 1px;
   }
 
 }

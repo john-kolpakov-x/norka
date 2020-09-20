@@ -1,12 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {Formula} from '../../../model/Formula';
+import {FormulaStateService} from '../formula-state.service';
+import {FParent} from '../FParent';
+import {FocusMoveDirection} from '../FocusMoveDirection';
 
 @Component({
   selector: 'app-formula',
   templateUrl: './formula.component.html',
   styleUrls: ['./formula.component.scss']
 })
-export class FormulaComponent {
+export class FormulaComponent implements FParent {
 
   formula: Formula = {
     id: 'asd',
@@ -35,5 +38,21 @@ export class FormulaComponent {
       }
     }
   };
+
+  constructor(private state: FormulaStateService) {
+    // tslint:disable-next-line
+    window['formulaStateServiceView'] = state;
+  }
+
+  onKeyDown($event: KeyboardEvent): void {
+    if (!this.state.onKeyDown($event)) {
+      console.log('yEigN4wf0Y :: FormulaComponent $event = ', $event);
+    }
+  }
+
+  takeFocusFromChild(childElemId: string, focusMoveDirection: FocusMoveDirection): boolean {
+    console.log('gykIc51XD9 :: takeFocusFromChild : childElemId = ', childElemId, ' : ', focusMoveDirection);
+    return false;
+  }
 
 }

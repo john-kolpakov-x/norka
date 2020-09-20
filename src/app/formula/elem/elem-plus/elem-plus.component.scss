@@ -9,5 +9,11 @@
   }
 
   &-operand {
+
+    &-focused {
+      color: blue;
+      font-weight: bold;
+    }
+
   }
 }

@@ -1,9 +1,13 @@
-<span class="elem div">
+<span class="elem div"
+      [class.div-cursorRight]="elemId === state.focusedId && cursorPos == StdPos.RIGHT"
+      [class.div-cursorLeft]="elemId === state.focusedId && cursorPos == StdPos.LEFT"
+>
   <span class="div-top">
-    <app-elem [formula]="formula" [elemId]="elem.topId"></app-elem>
+    <app-elem [formula]="formula" [elemId]="elem.topId" [parent]="this"></app-elem>
   </span>
-  <span class="div-line"></span>
+  <span class="div-line"
+        [class.div-line-focused]="elemId === state.focusedId && cursorPos == StdPos.MIDDLE"></span>
   <span class="div-bottom">
-    <app-elem [formula]="formula" [elemId]="elem.bottomId"></app-elem>
+    <app-elem [formula]="formula" [elemId]="elem.bottomId" [parent]="this"></app-elem>
   </span>
 </span>

@@ -1,1 +1,3 @@
-<app-elem [formula]="formula" elemId="id1"></app-elem>
+<div tabindex="0" (keydown)="onKeyDown($event)" class="formula">
+  <app-elem [formula]="formula" elemId="id1" [parent]="this"></app-elem>
+</div>

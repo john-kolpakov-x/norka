@@ -1,25 +1,36 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Formula} from '../../../../model/Formula';
 import {ElemConst} from '../../../../model/ElemConst';
-import {ElemPlus} from '../../../../model/ElemPlus';
 import {FormulaStateService} from '../../formula-state.service';
+import {FElement} from '../../FElement';
+import {FElementRegistration} from '../../FElementRegistration';
+import {FParent} from '../../FParent';
+import {FocusMoveDirection} from '../../FocusMoveDirection';
 
 @Component({
   selector: 'app-elem-const',
   templateUrl: './elem-const.component.html',
   styleUrls: ['./elem-const.component.scss']
 })
-export class ElemConstComponent implements OnInit {
+export class ElemConstComponent implements OnInit, FElement, OnDestroy {
   @Input()
   formula: Formula;
 
   @Input()
   elemId: string;
 
+  @Input()
+  parent: FParent;
+
   cursorPos = 0;
+  fElementRegistration: FElementRegistration;
 
   get elem(): ElemConst {
     return this.formula.elements[this.elemId] as ElemConst;
+  }
+
+  id(): string {
+    return this.elemId;
   }
 
   get elemParts(): string[] {
@@ -35,9 +46,22 @@ export class ElemConstComponent implements OnInit {
     return ret;
   }
 
+  get length(): number {
+    return this.elem.value ? this.elem.value.length : 0;
+  }
+
   constructor(private state: FormulaStateService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fElementRegistration = this.state.register(this);
+  }
+
+  ngOnDestroy(): void {
+    if (this.fElementRegistration) {
+      this.fElementRegistration.unregister();
+      this.fElementRegistration = undefined;
+    }
+  }
 
   letterClass(i: number): string {
     if (this.elemId !== this.state.focusedId) {
@@ -47,4 +71,50 @@ export class ElemConstComponent implements OnInit {
       ? 'const-cursor-left'
       : ((i === this.elemParts.length - 1 && this.cursorPos >= this.elemParts.length) ? 'const-cursor-right' : undefined);
   }
+
+  doKeyDown(event: KeyboardEvent): boolean {
+
+    if (event.key === 'ArrowUp') {
+      return this.parent.takeFocusFromChild(this.elemId, FocusMoveDirection.UP);
+    }
+    if (event.key === 'ArrowDown') {
+      return this.parent.takeFocusFromChild(this.elemId, FocusMoveDirection.DOWN);
+    }
+
+    if (event.key === 'ArrowRight') {
+      if (this.cursorPos >= this.length) {
+        return this.parent.takeFocusFromChild(this.elemId, FocusMoveDirection.RIGHT);
+      }
+      this.cursorPos++;
+      return true;
+    }
+    if (event.key === 'ArrowLeft') {
+      if (this.cursorPos <= 0) {
+        return this.parent.takeFocusFromChild(this.elemId, FocusMoveDirection.LEFT);
+      }
+      this.cursorPos--;
+      return true;
+    }
+
+    return false;
+  }
+
+  takeFocusFromParent(focusMoveDirection: FocusMoveDirection): boolean {
+    this.state.focusedId = this.elemId;
+
+    if (focusMoveDirection === FocusMoveDirection.RIGHT) {
+      this.cursorPos = 0;
+      return true;
+    }
+
+    if (focusMoveDirection === FocusMoveDirection.LEFT) {
+      this.cursorPos = this.length;
+      return true;
+    }
+
+    // else restore prev cursorPos, saved in field `this.cursorPos`
+
+    return true;
+  }
+
 }

@@ -1,9 +1,9 @@
 <span class="elem plus">
   <span class="plus-left">
-    <app-elem [formula]="formula" [elemId]="elem.leftId"></app-elem>
+    <app-elem [formula]="formula" [elemId]="elem.leftId" [parent]="this"></app-elem>
   </span>
-  <span class="plus-operand">+</span>
+  <span class="plus-operand" [class.plus-operand-focused]="elemId === state.focusedId">+</span>
   <span class="plus-right">
-    <app-elem [formula]="formula" [elemId]="elem.rightId"></app-elem>
+    <app-elem [formula]="formula" [elemId]="elem.rightId" [parent]="this"></app-elem>
   </span>
 </span>

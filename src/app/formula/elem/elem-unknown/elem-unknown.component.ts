@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {FParent} from '../../FParent';
 
 @Component({
   selector: 'app-elem-unknown',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./elem-unknown.component.scss']
 })
 export class ElemUnknownComponent implements OnInit {
+
+  @Input()
+  parent: FParent;
 
   constructor() { }
 

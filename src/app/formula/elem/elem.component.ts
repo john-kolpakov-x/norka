@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Formula} from '../../../model/Formula';
 import {Elem} from '../../../model/Elem';
+import {FParent} from '../FParent';
 
 @Component({
   selector: 'app-elem',
@@ -14,6 +15,9 @@ export class ElemComponent implements OnInit {
 
   @Input()
   elemId: string;
+
+  @Input()
+  parent: FParent;
 
   get type(): string {
 
