@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Formula} from '../../../model/Formula';
-import {ElemConst} from '../../../model/ElemConst';
-import {ElemPlus} from '../../../model/ElemPlus';
+import {Formula} from '../../../../model/Formula';
+import {ElemConst} from '../../../../model/ElemConst';
+import {ElemPlus} from '../../../../model/ElemPlus';
 
 @Component({
   selector: 'app-elem-const',

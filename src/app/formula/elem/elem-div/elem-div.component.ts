@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Formula} from '../../../model/Formula';
-import {ElemPlus} from '../../../model/ElemPlus';
-import {ElemDiv} from '../../../model/ElemDiv';
+import {Formula} from '../../../../model/Formula';
+import {ElemPlus} from '../../../../model/ElemPlus';
+import {ElemDiv} from '../../../../model/ElemDiv';
 
 @Component({
   selector: 'app-elem-div',

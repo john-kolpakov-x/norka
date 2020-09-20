@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Formula} from '../../model/Formula';
-import {Elem} from '../../model/Elem';
+import {Formula} from '../../../model/Formula';
+import {Elem} from '../../../model/Elem';
 
 @Component({
   selector: 'app-elem',
